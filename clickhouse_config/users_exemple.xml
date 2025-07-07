@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<yandex>
+    <users>
+        <datalens_user>
+            <password>${DATALENS_PASSWORD}</password>
+            <networks>
+                <ip>130.193.60.0</ip>
+                <ip>178.154.242.128</ip>
+                <ip>178.154.242.144</ip>
+                <ip>178.154.242.160</ip>
+                <ip>178.154.242.176</ip>
+                <ip>178.154.242.192</ip>
+                <ip>178.154.242.208</ip>
+            </networks>
+            <profile>${PROFILE}</profile>
+            <quota>${QUOTA}</quota>
+        </datalens_user>
+    </users>
+
+    <profiles>
+        <default>
+            <max_memory_usage>100000000</max_memory_usage> <!-- 100 МБ -->
+            <use_uncompressed_cache>1</use_uncompressed_cache>
+            <load_balancing>random</load_balancing>
+        </default>
+    </profiles>
+
+    <quotas>
+        <default>
+            <interval>
+                <duration>3600</duration>
+                <queries>0</queries>
+                <errors>0</errors>
+                <result_rows>0</result_rows>
+                <read_rows>0</read_rows>
+            </interval>
+        </default>
+    </quotas>
+</yandex>
