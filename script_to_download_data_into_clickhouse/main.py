@@ -1,15 +1,19 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 from clickhouse_driver import Client
 
+
 client = Client(
-    host='${HOST}',
-    port='${PORT_CLICKHOUSE}',            # порт по умолчанию для native-протокола
-    user='${CLICKHOUSE_USER}',
-    password='${CLICKHOUSE_PASSWORD}',
-    database='${DATABASE_NAME}',  # (опционально, если не 'default')
+    host=os.getenv('HOST'),
+    port=os.getenv('PORT_CLICKHOUSE'),            # порт по умолчанию для native-протокола
+    user=os.getenv('CLICKHOUSE_USER'),
+    password=os.getenv('CLICKHOUSE_PASSWORD'),
+    database=os.getenv('DATABASE_NAME')
 )
 
 
 
 
-df = client.execute("SELECT * FROM orgs LIMIT 10")
-print(df[0])
+df = client.execute("""SELECT * FROM "train"."orgs" LIMIT 10""")
+print(df)
