@@ -1,0 +1,15 @@
+# Python & venv
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Logs
+*.log
+logs/
+
+# Data volumes
+clickhouse_data/
+pgdata/
+
+clickhouse_config/users.xml

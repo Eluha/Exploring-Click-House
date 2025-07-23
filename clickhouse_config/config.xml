@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<yandex>
+    <user_directories>
+        <users_xml>
+            <path>/etc/clickhouse-server/users.xml</path>
+        </users_xml>
+    </user_directories>
+    <networks>
+        <ip>130.193.60.0</ip>
+        <ip>178.154.242.160</ip>
+        <ip>178.154.242.144</ip>
+        <ip>178.154.242.128</ip>
+        <ip>178.154.242.208</ip>
+        <ip>178.154.242.192</ip>
+        <ip>178.154.242.176</ip>
+    </networks>
+    <!-- Разрешаем прослушивание всех интерфейсов (для доступа извне) -->
+    <listen_host>0.0.0.0</listen_host>
+
+    <!-- Порты по умолчанию -->
+    <http_port>8123</http_port>
+    <tcp_port>9000</tcp_port>
+
+    <!-- Включаем логирование -->
+    <logger>
+        <level>information</level>
+        <log>/var/log/clickhouse-server/clickhouse-server.log</log>
+        <errorlog>/var/log/clickhouse-server/clickhouse-server.err.log</errorlog>
+        <size>100M</size>
+        <count>5</count>
+    </logger>
+
+    <!-- Пути к директориям -->
+    <path>/var/lib/clickhouse/data/</path>
+    <tmp_path>/var/lib/clickhouse/tmp/</tmp_path>
+    <user_files_path>/var/lib/clickhouse</user_files_path>
+    <format_schema_path>/var/lib/clickhouse/format_schemas/</format_schema_path>
+
+    <!-- Настройки для взаимодействия через HTTP -->
+    <http_server_default_response>200 OK</http_server_default_response>
+
+    <!-- Включаем удалённое подключение (важно для DataLens) -->
+    <listen_try>1</listen_try>
+
+    <!-- Настройки пользователей (переопределяются в users.xml, если подключен) -->
+    <default_profile>default</default_profile>
+    <default_database>default</default_database>
+
+    <!-- Отладка (опционально) -->
+    <query_log>
+        <database>system</database>
+        <table>query_log</table>
+        <flush_interval_milliseconds>7500</flush_interval_milliseconds>
+    </query_log>
+</yandex>
